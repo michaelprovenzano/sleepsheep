@@ -1,0 +1,103 @@
+.trackables__list {
+  margin-bottom: 48px;
+
+  & > * {
+    width: 100%;
+  }
+}
+
+.list-view .trackable {
+  margin: 5px 0;
+
+  a {
+    color: var(--text-color-dark);
+  }
+
+  &__line-1 {
+    margin: 0;
+    height: 54px;
+  }
+}
+
+.trackable {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 21px;
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 44px;
+    height: 100%;
+  }
+}
+
+.trackable__line-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+  transform: scale(1);
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.015);
+  }
+}
+
+.trackable__line-2 {
+  width: calc(100% - 29px);
+  margin-left: 29px;
+  max-height: 150px;
+  transition: 0.3s ease-in;
+}
+
+.trackable__checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.trackable__details__name {
+  margin-bottom: 5px;
+}
+
+.trackable__details__timeframe {
+  font-weight: 300;
+  margin: 0;
+}
+
+.trackable__quantity-label {
+  font-weight: 300;
+  margin-bottom: 9px;
+}
+
+.trackable__quantity-number {
+  width: 100%;
+}
+
+.trackable input[type='text'] {
+  margin-bottom: 0;
+}
+
+.trackable__line-2__hidden {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.trackable-checked {
+  color: var(--dark-blue);
+
+  & .arrow div {
+    background: var(--dark-blue);
+  }
+}

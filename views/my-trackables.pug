@@ -1,0 +1,26 @@
+extends base
+
+block content
+  .content
+    .container.fixed-bottom
+      a.btn.btn-secondary(href='/new-trackable') + New Trackable
+    .container
+      .trackables__list.list-view
+        each trackable in trackables
+          .trackable
+            .trackable__line-1
+              a.trackable__checkbox.checkbox(href=`/edit-trackable/${trackable.id}`)
+                .trackable__details
+                  p.trackable__details__name= trackable.name
+                  - var timeframeStr
+                  - if (trackable.timeframe === 'Before Bed') timeframeStr = `${trackable.hoursBeforeBed} hours before bed`
+                  - if (trackable.timeframe === 'Anytime Today') timeframeStr = 'Anytime today'
+                  p.trackable__details__timeframe= timeframeStr
+              a.trackable__arrow(href='#')
+                .arrow.arrow-forward.arrow-dark
+                  .arrow__line-2
+                  .arrow__line-1
+        
+        if trackables <= 0
+          p.empty You don't have any trackables yet. Click the New Trackable button below to get started!
+

@@ -1,0 +1,51 @@
+{
+  "name": "sleep-tracker",
+  "version": "1.0.0",
+  "description": "A simple app for assessing the quality of sleep",
+  "main": "server.js",
+  "engines": {
+    "node": "^10"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "debug": "ndb server.js",
+    "compile:css": "node-sass -rw dev_data/html/sass/main.scss public/css/style.css -w",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public --out-file bundle.js",
+    "build:js": "parcel watch ./public/js/index.js --out-dir ./public --out-file bundle.js"
+  },
+  "author": "Michael Provenzano",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^2.9.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^1.3.2",
+    "express-rate-limit": "^5.1.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "hpp": "^0.2.3",
+    "html-to-text": "^5.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.3",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.4.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4",
+    "slugify": "^1.4.0",
+    "validator": "^12.2.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "ndb": "^1.1.5",
+    "node-sass": "^4.13.1",
+    "parcel-bundler": "^1.12.4"
+  }
+}

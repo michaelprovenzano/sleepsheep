@@ -1,0 +1,33 @@
+extends base
+
+block content
+  .content
+    if user.sleepData.totalSleepLogs > 0
+      each week in sleeplogs
+        p.my-history.my-history__divider
+          if week.thisWeek
+            span.container This Week
+          else
+            span.container= `${week.firstday.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' })} - ${week.lastday.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' })}`
+        .container.my-history.list-view
+          each sleeplog in week.logs
+            a.my-history__sleeplog(href=`/sleeplogs/${sleeplog.slug}`)
+              .my-history__col-1
+                p.my-history__day.text-small= sleeplog.sleepStart.toLocaleString('en-US', { weekday: 'long' })
+                p.my-history__date= sleeplog.sleepStart.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' })
+              .my-history__col-2
+                p.my-history__time.text-small= `${sleeplog.sleepStart.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' }) } - ${sleeplog.sleepEnd.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' }) }`
+                p.my-history__duration= `${ parseInt(sleeplog.sleepDuration) } hr  ${ parseInt((sleeplog.sleepDuration - parseInt(sleeplog.sleepDuration)) * 60) } min`
+              div(class=`my-history__col-3 rating-${sleeplog.sleepQuality}`)
+                img.rating-icon(src=`/images/Rating-${sleeplog.sleepQuality}.svg`)
+                p.my-history__rating-text.text-small= sleeplog.sleepQualityString
+              .my-history__col-4
+                .arrow.arrow-forward.arrow-dark
+                  .arrow__line-2
+                  .arrow__line-1
+    else if user.sleepData.totalSleepLogs === 0
+      p.empty You don't have any sleeplogs yet! Click the purple button to add your first sleeplog!
+      a.fab(href='/new-sleeplog')
+        .icon.plus-icon
+          .plus-icon__horz
+          .plus-icon__vert

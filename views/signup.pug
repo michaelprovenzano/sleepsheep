@@ -1,0 +1,14 @@
+extends base
+
+block content
+  .content
+    .container
+      form#signup-form.form.login-form(action='')
+        input(type='text' name='name' id='name' placeholder='Name' required='')
+        input(type='text' name='email' id='email' placeholder='Email' required='')
+        input(type='password' name='password' id='password' placeholder='Password' required='')
+        input(type='password' name='password-confirm' id='password-confirm' placeholder='Confirm Password' required='')
+        button.btn.btn-primary(type='submit') Sign Up
+      .alternate-login
+        p.center Don&apos;t have an account?
+        a.btn.btn-secondary.full-width(href='/login') Log In

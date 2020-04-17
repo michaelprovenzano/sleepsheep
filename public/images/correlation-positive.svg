@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>correlation-positive</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-18.000000, -501.000000)" fill="#443FBD" fill-rule="nonzero">
+            <path d="M29,523 C22.9248678,523 18,518.075132 18,512 C18,505.924868 22.9248678,501 29,501 C35.0751322,501 40,505.924868 40,512 C40,518.075132 35.0751322,523 29,523 Z M32.5,511 C33.3284271,511 34,510.328427 34,509.5 C34,508.671573 33.3284271,508 32.5,508 C31.6715729,508 31,508.671573 31,509.5 C31,510.328427 31.6715729,511 32.5,511 Z M26.5,511 C27.3284271,511 28,510.328427 28,509.5 C28,508.671573 27.3284271,508 26.5,508 C25.6715729,508 25,508.671573 25,509.5 C25,510.328427 25.6715729,511 26.5,511 Z M24,513.580354 C24,516.573542 26.2385763,519 29,519 C31.7614237,519 34,516.573542 34,513.580354 C34,510.587167 32.2253726,512.765161 29,512.765161 C25.7746274,512.765161 24,510.587167 24,513.580354 Z" id="correlation-positive"></path>
+        </g>
+    </g>
+</svg>

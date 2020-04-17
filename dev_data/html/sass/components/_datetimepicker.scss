@@ -1,0 +1,15 @@
+.datetimepicker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datetimepicker input {
+  display: inline-block;
+  height: 45px;
+  width: 100%;
+}
+
+.datetimepicker input:first-child {
+  margin-right: 4px;
+}

@@ -1,0 +1,52 @@
+.stats {
+  width: 100%;
+  max-height: 800px;
+  transition: 0.15s ease-in;
+  overflow: hidden;
+
+  h4 {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 40px;
+  }
+
+  > canvas:last-child {
+    display: inline-block;
+    margin-bottom: 40px;
+  }
+
+  &__hidden {
+    max-height: 0;
+  }
+
+  .stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+    color: var(--text-color-dark);
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .label {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        width: 26px;
+        height: auto;
+        margin-right: 10px;
+      }
+    }
+
+    .data {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.dashboard {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    height: 56px;
+    width: 100%;
+    border-bottom: solid 1px rgba($dark-blue, 0.1);
+    border-top: solid 1px rgba($dark-blue, 0.1);
+  }
+
+  .chart {
+    height: 375px;
+  }
+
+  .trackable__stats {
+    margin-bottom: 120px;
+    font-weight: 400;
+
+    .correlation {
+      &-positive {
+        color: $success_1;
+
+        .arrow > * {
+          background-color: $success_1;
+        }
+      }
+      &-negative {
+        color: $purple;
+
+        .arrow > * {
+          background-color: $purple;
+        }
+      }
+      &-na {
+        color: rgb(184, 125, 0);
+
+        .arrow > * {
+          background-color: rgb(184, 125, 0);
+        }
+      }
+    }
+
+    .trackable__details__name {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      p {
+        display: inline-block;
+        font-weight: 700;
+        margin: 0 10px 0;
+      }
+    }
+
+    .trackable {
+      border-bottom: solid 1px rgba($dark-blue, 0.1);
+      margin-bottom: 0;
+
+      &__summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        // height: 96px;
+        padding: 20px 0;
+        transform: scale(1);
+        transition: 0.3s ease-out;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.015);
+        }
+      }
+    }
+  }
+}

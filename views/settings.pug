@@ -1,0 +1,40 @@
+extends base
+
+block content
+  .content
+    form#update-settings-form.my-settings(action='')
+
+      p.my-settings__divider
+        span.container Account
+      .container.my-settings__section
+        .my-settings__input-text
+          input(type='text' name='name' id='name' placeholder='Name' value=`${user.name ? user.name : ''}`)
+        .my-settings__input-text
+          input(type='text' name='email' id='email' placeholder='Email' value=user.email)
+
+      p.my-settings__divider
+        span.container Change Password
+      .container.my-settings__section
+        .my-settings__input-text
+          input(type='password' name='current-password' id='current-password' placeholder='Current Password')
+        .my-settings__input-text
+          input(type='password' name='new-password' id='new-password' placeholder='New Password')
+        .my-settings__input-text
+          input(type='password' name='new-password-confirm' id='new-password-confirm' placeholder='New Password Confirm')
+      //- p.my-settings__divider
+      //-   span.container Notifications
+      //- .container.my-settings__section
+      //-   label(for='email-reminders' class='switch--container')
+      //-     input(type='checkbox' id='email-reminders' class='slider')
+      //-     span.label-text Email Reminders
+      //-     span.checkmark
+      //- p.my-settings__divider
+      //-   span.container Connected Devices
+      //- .container.my-settings__section
+      //-   label(for='connected-account__fitbit' class='switch--container')
+      //-     input(type='checkbox' id='connected-account__fitbit' class='slider')
+      //-     span.label-text Fitbit
+      //-     span.checkmark
+      .container.my-settings__section.my-settings__submit
+        button.btn.btn-secondary Delete Account
+        button.btn.btn-primary(type='submit') Save Settings

@@ -1,0 +1,30 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 18px;
+  height: 45px;
+  padding: 0 20px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &-secondary {
+    color: var(--white);
+    background: var(--dark-blue);
+  }
+
+  &-primary {
+    color: var(--white);
+    background: var(--purple);
+  }
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--purple);
+    height: 45px;
+    width: 100%;
+  }
+}

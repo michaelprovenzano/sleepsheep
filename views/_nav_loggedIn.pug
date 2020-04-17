@@ -1,0 +1,66 @@
+nav.top-nav
+  .top-nav__left
+    .logo
+    a.h1(href='/dashboard')
+      img(src="/images/sleepsheep-logo.svg", alt="" class="logo")
+  .top-nav__right
+    input#nav_toggle(type='checkbox' name='navigation_checkbox')
+    ul.top-nav__right-menu
+      li.top-nav__right-menu__item
+        a.menu-item(href='/dashboard' alt='')
+          span.menu-item__icon
+            svg(width='26px' height='27px' viewbox='0 0 26 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+              g#Symbols(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+                g#Home-Icon(transform='translate(-2.000000, -1.000000)' fill-rule='nonzero' stroke='#0A0768' stroke-width='2')
+                  g#Home(transform='translate(2.000000, 2.000000)')
+                    path#Rectangle(d='M1.32634368,11.012235 C1.11846378,11.2017223 1,11.4699979 1,11.7512798 L1,23.087889 C1,23.6401737 1.44771525,24.087889 2,24.087889 L24,24.087889 C24.5522847,24.087889 25,23.6401737 25,23.087889 L25,11.7512798 C25,11.4699979 24.8815362,11.2017223 24.6736563,11.012235 L13.6736563,0.985481738 C13.2919432,0.637541423 12.7080568,0.637541423 12.3263437,0.985481738 L1.32634368,11.012235 Z')
+          span.menu-item__text Dashboard
+      li.top-nav__right-menu__item
+        a.menu-item(href='/my-history' alt='')
+          span.menu-item__icon
+            svg(width='26px' height='26px' viewbox='0 0 26 26' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+              g#Symbols(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+                g#History-Icon(transform='translate(-2.000000, -2.000000)' fill-rule='nonzero')
+                  g#History(transform='translate(2.000000, 2.000000)')
+                    circle#Menu-Icon(stroke='#0A0768' stroke-width='2' cx='13' cy='13' r='12')
+                    rect#Rectangle(fill='#0A0768' x='12' y='12' width='9' height='2' rx='1')
+                    rect#Rectangle-Copy(fill='#0A0768' transform='translate(13.000000, 9.000000) rotate(-90.000000) translate(-13.000000, -9.000000) ' x='8' y='8' width='10' height='2' rx='1')
+          span.menu-item__text My History
+      li.top-nav__right-menu__item
+        a.menu-item(href='/my-trackables' alt='')
+          span.menu-item__icon
+            svg(width='24px' height='26px' viewbox='0 0 24 26' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+              g#Symbols(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+                g#Trackables-Icon(transform='translate(-3.000000, -2.000000)' fill-rule='nonzero')
+                  g#Trackable(transform='translate(3.000000, 2.000000)')
+                    rect#Rectangle(stroke='#0A0768' stroke-width='2' x='1' y='1' width='22' height='24' rx='2')
+                    path#Combined-Shape(d='M6,6 C6.55228475,6 7,6.44771525 7,7 C7,7.55228475 6.55228475,8 6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 Z M6,10 C6.55228475,10 7,10.4477153 7,11 C7,11.5522847 6.55228475,12 6,12 C5.44771525,12 5,11.5522847 5,11 C5,10.4477153 5.44771525,10 6,10 Z M6,14 C6.55228475,14 7,14.4477153 7,15 C7,15.5522847 6.55228475,16 6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 Z M9,6 L18,6 C18.5522847,6 19,6.44771525 19,7 C19,7.55228475 18.5522847,8 18,8 L9,8 C8.44771525,8 8,7.55228475 8,7 C8,6.44771525 8.44771525,6 9,6 Z M9,10 L18,10 C18.5522847,10 19,10.4477153 19,11 C19,11.5522847 18.5522847,12 18,12 L9,12 C8.44771525,12 8,11.5522847 8,11 C8,10.4477153 8.44771525,10 9,10 Z M9,14 L18,14 C18.5522847,14 19,14.4477153 19,15 C19,15.5522847 18.5522847,16 18,16 L9,16 C8.44771525,16 8,15.5522847 8,15 C8,14.4477153 8.44771525,14 9,14 Z' fill='#0A0768')
+          span.menu-item__text My Trackables
+      li.top-nav__right-menu__item
+        a.menu-item(href='/settings' alt='')
+          span.menu-item__icon
+            svg(width='30px' height='30px' viewbox='0 0 30 30' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+              g#Symbols(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+                g#Settings-Icon(fill-rule='nonzero' stroke='#0A0768' stroke-width='2')
+                  path#Combined-Shape(d='M12.6978698,28 C10.7665458,27.6603243 8.97989557,26.9007791 7.43552839,25.8189739 L7.61070295,22.389297 L4.18102609,22.5644716 C3.09922089,21.0201044 2.33967571,19.2334542 2,17.3021302 L4.5499559,15 L2,12.6978698 C2.33967571,10.7665458 3.09922089,8.97989557 4.18102609,7.43552839 L7.61070295,7.61070295 L7.43552839,4.18102609 C8.97989557,3.09922089 10.7665458,2.33967571 12.6978698,2 L15,4.5499559 L17.3021302,2 C19.2334542,2.33967571 21.0201044,3.09922089 22.5644716,4.18102609 L22.389297,7.61070295 L25.8189739,7.43552839 C26.9007791,8.97989557 27.6603243,10.7665458 28,12.6978698 L25.4500441,15 L28,17.3021302 C27.6603243,19.2334542 26.9007791,21.0201044 25.8189739,22.5644716 L22.389297,22.389297 L22.5644716,25.8189739 C21.0201044,26.9007791 19.2334542,27.6603243 17.3021302,28 L15,25.4500441 L12.6978698,28 Z M15,19 C17.209139,19 19,17.209139 19,15 C19,12.790861 17.209139,11 15,11 C12.790861,11 11,12.790861 11,15 C11,17.209139 12.790861,19 15,19 Z')
+          span.menu-item__text Settings
+      li.top-nav__right-menu__item
+        .menu-item#logout-btn
+          span.menu-item__icon
+            svg(width='26px' height='24px' viewbox='0 0 26 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+              g#Symbols(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+                g#Log-Out-Icon(transform='translate(-3.000000, -3.000000)' fill-rule='nonzero')
+                  g#Log-Out(transform='translate(4.000000, 4.000000)')
+                    path#Combined-Shape(d='M19,3.22182541 C16.9858766,1.23121694 14.203391,0 11.1299423,0 C4.98304491,0 -7.2475359e-12,4.92486775 -7.2475359e-12,11 C-7.2475359e-12,17.0751322 4.98304491,22 11.1299423,22 C14.203391,22 16.9858766,20.7687831 19,18.7781746' stroke='#0A0768' stroke-width='2' stroke-linecap='round')
+                    path#Combined-Shape(d='M20,10 L20,8.88309519 C20,8.60695281 20.2238576,8.38309519 20.5,8.38309519 C20.590622,8.38309519 20.6795402,8.40772411 20.7572479,8.45434873 L24.2854226,10.5712535 C24.5222127,10.7133276 24.5989952,11.0204577 24.4569211,11.2572479 C24.4146963,11.3276227 24.3557974,11.3865216 24.2854226,11.4287465 L20.7572479,13.5456513 C20.5204577,13.6877254 20.2133276,13.6109428 20.0712535,13.3741527 C20.0246289,13.296445 20,13.2075268 20,13.1169048 L20,12 L12,12 C11.4477153,12 11,11.5522847 11,11 C11,10.4477153 11.4477153,10 12,10 L20,10 Z' fill='#0A0768')
+          span.menu-item__text Log Out
+    
+    label.menu-icon(for='nav_toggle')
+      span.line-1
+      span.line-2
+      span.line-3
+      //- svg.icon(width='30px' height='18px' viewbox='0 0 30 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+      //-   g#Symbols(stroke='none' stroke-width='1')
+      //-     g#menu(transform='translate(-14.000000, -13.000000)')
+      //-       path#Combined-Shape(d='M15,13 L43,13 C43.5522847,13 44,13.4477153 44,14 C44,14.5522847 43.5522847,15 43,15 L15,15 C14.4477153,15 14,14.5522847 14,14 C14,13.4477153 14.4477153,13 15,13 Z M23,21 L43,21 C43.5522847,21 44,21.4477153 44,22 C44,22.5522847 43.5522847,23 43,23 L23,23 C22.4477153,23 22,22.5522847 22,22 C22,21.4477153 22.4477153,21 23,21 Z M15,29 L43,29 C43.5522847,29 44,29.4477153 44,30 C44,30.5522847 43.5522847,31 43,31 L15,31 C14.4477153,31 14,30.5522847 14,30 C14,29.4477153 14.4477153,29 15,29 Z')
+    .top-nav__right-menu-background &nbsp;

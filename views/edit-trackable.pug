@@ -1,0 +1,47 @@
+extends base
+
+block content
+
+  .content
+    .container
+      form#update-trackable-form.form.trackable-form(data-trackable-id=trackable._id)
+        h4 What would you like to track?
+        input#trackable__name(type='text' name='trackable__name' placeholder='Caffeine, exercise, etc' required='' value=trackable.name)
+        h4 What timeframe?
+        .button-toggle
+          .button-toggle__option
+            input#trackable-timeframe__before-bed(type='radio' name='trackable-timeframe' checked=trackable.timeframe==='Before Bed' value='Before Bed')
+            label(for='trackable-timeframe__before-bed') Before Bed
+          .button-toggle__option
+            input#trackable-timeframe__anytime-today(type='radio' name='trackable-timeframe' checked=trackable.timeframe==='Anytime Today' value='Anytime Today')
+            label(for='trackable-timeframe__anytime-today') Anytime Today
+        input#trackable__hours(type='text' name='trackable__hours' class=`${trackable.timeframe === 'Anytime Today' ? 'hide' : ''}` placeholder='How many hours before bed?' value=trackable.hoursBeforeBed)
+        h4 Do you want to track more specifics? (Select one)
+        .btn-tags__container
+          .btn-tag
+            input#btn-tag__how-many(type='radio' name='trackable-quantifier' value='How many' checked=trackable.quantifier==='How many')
+            label(for='btn-tag__how-many')
+              .icon.plus-icon
+                .plus-icon__horz
+                .plus-icon__vert
+              .btn-tag__label-text How many?
+          .btn-tag
+            input#btn-tag__how-long(type='radio' name='trackable-quantifier' value='How long' checked=trackable.quantifier==='How long')
+            label(for='btn-tag__how-long')
+              .icon.plus-icon
+                .plus-icon__horz
+                .plus-icon__vert
+              .btn-tag__label-text How long?
+          .btn-tag
+            input#btn-tag__how-much(type='radio' name='trackable-quantifier' value='How much' checked=trackable.quantifier==='How much')
+            label(for='btn-tag__how-much')
+              .icon.plus-icon
+                .plus-icon__horz
+                .plus-icon__vert
+              .btn-tag__label-text How much?
+        input#trackable__quantifierUnits(type='text' name='trackable-quantifierUnits' class=`${trackable.quantifier ? '' : 'hide'}` placeholder='e.g. drinks, minutes, oz, etc...' value=`${trackable.quantifierUnits ? trackable.quantifierUnits : ''}`)              
+        h4 Write a short description if you would like.
+        textarea(name='trackable-description' id='trackable__description' cols='30' rows='10' placeholder='Write a short description of what this trackable is for.')= trackable.description
+        .cols
+          button.btn.btn-secondary(type='button' id='trackable-delete' data-trackable-id=trackable._id) Delete
+          button.btn.btn-primary(type='submit') Save

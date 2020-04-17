@@ -1,0 +1,19 @@
+nav.top-nav
+  .top-nav__left
+    .logo
+    a.h1(href='/')
+      img(src="/images/sleepsheep-logo.svg", alt="" class="logo")
+  .top-nav__right
+    input#nav_toggle(type='checkbox' name='navigation_checkbox')
+    ul.top-nav__right-menu
+      li.top-nav__right-menu__item
+        a.menu-item(href='/' alt='') About
+      li.top-nav__right-menu__item
+        a.btn.btn-secondary(href='/login') Log In
+      li.top-nav__right-menu__item
+        a.btn.btn-primary(href='/signup') Sign Up
+    label.menu-icon(for='nav_toggle')
+      span.line-1
+      span.line-2
+      span.line-3
+    .top-nav__right-menu-background &nbsp;

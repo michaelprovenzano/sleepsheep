@@ -1,0 +1,78 @@
+extends base
+
+block content
+  .content
+    if user
+      .container.dashboard
+        header Sleep Stats
+        .stats
+          if user.sleepData.totalSleepLogs > 0
+            .stat
+              .label
+                img.rating-icon(src=`/images/Rating-${Math.ceil(((user.sleepData.avgSleepQuality - 1) * 25 / 20) + .001)}.svg`)
+                h4 Sleep Quality Average
+              h4.data= `${((user.sleepData.avgSleepQuality - 1) * 25).toFixed(0)}`
+            .stat
+              .label
+                img.rating-icon(src=`/images/Rating-${Math.ceil(((user.sleepData.avgTimeToFallAsleep - 1) * 25 / 20) + .001)}.svg`)
+                h4 Insomnia Average
+              h4.data= `${((user.sleepData.avgTimeToFallAsleep - 1) * 25).toFixed(0)}`
+            .stat
+              h4.label Sleep Duration Average
+              h4.data=  `${ parseInt(user.sleepData.avgSleepDuration) } hr  ${ parseInt((user.sleepData.avgSleepDuration - parseInt(user.sleepData.avgSleepDuration)) * 60) } min`
+
+          else
+            p.empty You don't have any sleeplogs yet! Click the purple button to add your first sleeplog!
+
+        header Trackable Stats
+        .trackable__stats
+          each trackable in trackables
+            - let corr, corrMsg, noLogs
+            - user.sleepData.trackablesCorrelation.forEach(e => { if (`${e._id}` === `${trackable.id}`) corr = e.possibleCorrelation })
+            - if (corr === undefined) { corr = 'na'; noLogs = true }
+            - if (corr === 'positive') { corrMsg = 'There\'s a possible positive correlation ' }
+            - if (corr === 'negative') { corrMsg = 'There\'s a possible negative correlation ' }
+            - if (corr === 'none') { corrMsg = 'There isn\'t a correlation found yet ' }
+            - if (corr === 'na') { corrMsg = 'There aren\'t enough sleeplogs with this trackable to determine a correlation yet ' }
+            .trackable(class=`correlation-${corr}`)
+              .trackable__summary
+                .trackable__details
+                  .trackable__details__name
+                    img(src=`/images/correlation-${corr}.svg` alt=`correlation ${corr} image`)
+                    p= trackable.name
+                    - let index
+                    - user.sleepData.trackablesCorrelation.forEach((el, i) => { if (`${el._id}` === `${trackable.id}`) index = i })
+                    - thisTrackable = user.sleepData.trackablesCorrelation[index]
+                  p.trackable__details__timeframe= `${corrMsg} between ${trackable.name} and your sleep.`
+                a.trackable__arrow(href='#')
+                  .arrow.arrow-down.arrow-dark
+                    .arrow__line-2
+                    .arrow__line-1
+              
+              if thisTrackable && corr !== 'na'
+                .stats.stats__hidden
+                  .stat
+                    .label
+                      img.rating-icon(src=`/images/Rating-${Math.ceil((thisTrackable.avgSleepQuality - 1) * 25 / 20)}.svg`)
+                      p Sleep Quality Average
+                    p.data= `${(thisTrackable.avgSleepQuality * 20).toFixed(0)}`
+                  .stat
+                    .label
+                      img.rating-icon(src=`/images/Rating-${Math.ceil((thisTrackable.avgTimeToFallAsleep - 1) * 25 / 20)}.svg`)
+                      p Insomnia Average
+                    p.data= `${((thisTrackable.avgTimeToFallAsleep - 1) * 25).toFixed(0)}`
+                  .stat
+                    p.label Sleep Duration Average
+                    p.data=  `${ parseInt(thisTrackable.avgSleepDuration) } hr  ${ parseInt((user.sleepData.avgSleepDuration - parseInt(user.sleepData.avgSleepDuration)) * 60) } min`
+                  .chart
+                    canvas(id=`trackable-${trackable.id}`)
+              else
+                .stats.stats__hidden
+                  .stat= `You don't have ${ noLogs ? 'any' : 'enough' } logs with this trackable yet!`
+          if trackables <= 0
+            p.empty You don't have any trackables yet! Create some by going to your trackables page.
+
+        a.fab(href='/new-sleeplog')
+          .icon.plus-icon
+            .plus-icon__horz
+            .plus-icon__vert

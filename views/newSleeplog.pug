@@ -1,0 +1,135 @@
+extends base
+
+block content
+  .content
+    .container
+      .sleeplog-date
+        h2.sleeplog-date__day= today.date.toLocaleString('en-US', { weekday: 'long' })
+        p.sleeplog-date__date= today.date.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric'} )
+        .sleeplog-date__divider
+      form#new-sleeplog-form.form(action='')
+        h4 What time did you go to bed?
+        .datetimepicker
+          input#sleep-date(type='date' value=`${today.sleepStartDate}`)
+          span
+          input#sleep-time(type='time' value=`${today.sleepStartTime}`)
+        h4 What time did you wake up?
+        .datetimepicker
+          input#wakeup-date(type='date' value=`${today.sleepEndDate}`)
+          span
+          input#wakeup-time(type='time' value=`${today.sleepEndTime}`)
+        h4 After getting into bed, you fell asleep...
+        .sleeplog-rating
+          .sleeplog-rating__rating.rating-1
+            input#fast-asleep-log__rating-1(type='radio' name='fast-asleep-log' value='1')
+            label(for='fast-asleep-log__rating-1')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g(transform='translate(-22.000000, -641.000000)')
+                  path(d='M48,693 C33.6405965,693 22,681.359403 22,667 C22,652.640597 33.6405965,641 48,641 C62.3594035,641 74,652.640597 74,667 C74,681.359403 62.3594035,693 48,693 Z M56,666 C58.209139,666 60,664.209139 60,662 C60,659.790861 58.209139,658 56,658 C53.790861,658 52,659.790861 52,662 C52,664.209139 53.790861,666 56,666 Z M41,666 C43.209139,666 45,664.209139 45,662 C45,659.790861 43.209139,658 41,658 C38.790861,658 37,659.790861 37,662 C37,664.209139 38.790861,666 41,666 Z M60,680 C60,673.372583 54.627417,668 48,668 C41.372583,668 36,673.372583 36,680 C36,686.627417 40.2591058,681.804974 48,681.804974 C55.7408942,681.804974 60,686.627417 60,680 Z')
+              .sleeplog-rating__rating__text
+                | > 60 min
+          .sleeplog-rating__rating.rating-2
+            input#fast-asleep-log__rating-2(type='radio' name='fast-asleep-log' value='2')
+            label(for='fast-asleep-log__rating-2')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-90.000000, -641.000000)')
+                    path(d='M116,693 C101.640597,693 90,681.359403 90,667 C90,652.640597 101.640597,641 116,641 C130.359403,641 142,652.640597 142,667 C142,681.359403 130.359403,693 116,693 Z M127.676254,676.263331 C125.279456,674.063098 121.381431,673 116,673 C110.618569,673 106.720544,674.063098 104.323746,676.263331 C103.916895,676.636816 103.889847,677.269403 104.263331,677.676254 C104.636816,678.083105 105.269403,678.110153 105.676254,677.736669 C107.636808,675.936902 111.072115,675 116,675 C120.927885,675 124.363192,675.936902 126.323746,677.736669 C126.730597,678.110153 127.363184,678.083105 127.736669,677.676254 C128.110153,677.269403 128.083105,676.636816 127.676254,676.263331 Z M123,666 C125.209139,666 127,664.209139 127,662 C127,659.790861 125.209139,658 123,658 C120.790861,658 119,659.790861 119,662 C119,664.209139 120.790861,666 123,666 Z M108,666 C110.209139,666 112,664.209139 112,662 C112,659.790861 110.209139,658 108,658 C105.790861,658 104,659.790861 104,662 C104,664.209139 105.790861,666 108,666 Z')
+              .sleeplog-rating__rating__text 45-60 min
+          .sleeplog-rating__rating.rating-3
+            input#fast-asleep-log__rating-3(type='radio' name='fast-asleep-log' value='3')
+            label(for='fast-asleep-log__rating-3')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-158.000000, -641.000000)')
+                    path#Rating-3(d='M184,693 C169.640597,693 158,681.359403 158,667 C158,652.640597 169.640597,641 184,641 C198.359403,641 210,652.640597 210,667 C210,681.359403 198.359403,693 184,693 Z M191,666 C193.209139,666 195,664.209139 195,662 C195,659.790861 193.209139,658 191,658 C188.790861,658 187,659.790861 187,662 C187,664.209139 188.790861,666 191,666 Z M176,666 C178.209139,666 180,664.209139 180,662 C180,659.790861 178.209139,658 176,658 C173.790861,658 172,659.790861 172,662 C172,664.209139 173.790861,666 176,666 Z M173,675 C172.447715,675 172,675.447715 172,676 C172,676.552285 172.447715,677 173,677 L194,677 C194.552285,677 195,676.552285 195,676 C195,675.447715 194.552285,675 194,675 L173,675 Z')
+              .sleeplog-rating__rating__text 30-45 min
+          .sleeplog-rating__rating.rating-4
+            input#fast-asleep-log__rating-4(type='radio' name='fast-asleep-log' value='4')
+            label(for='fast-asleep-log__rating-4')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-226.000000, -641.000000)')
+                    path#Rating-4(d='M252,693 C237.640597,693 226,681.359403 226,667 C226,652.640597 237.640597,641 252,641 C266.359403,641 278,652.640597 278,667 C278,681.359403 266.359403,693 252,693 Z M240.323746,674.736674 C242.720544,676.936908 246.618569,678.000006 252,678.000006 C257.381431,678.000006 261.279456,676.936908 263.676254,674.736674 C264.083105,674.36319 264.110153,673.730603 263.736669,673.323752 C263.363184,672.916901 262.730597,672.889852 262.323746,673.263337 C260.363192,675.063104 256.927885,676.000006 252,676.000006 C247.072115,676.000006 243.636808,675.063104 241.676254,673.263337 C241.269403,672.889852 240.636816,672.916901 240.263331,673.323752 C239.889847,673.730603 239.916895,674.36319 240.323746,674.736674 Z M259,666 C261.209139,666 263,664.209139 263,662 C263,659.790861 261.209139,658 259,658 C256.790861,658 255,659.790861 255,662 C255,664.209139 256.790861,666 259,666 Z M244,666 C246.209139,666 248,664.209139 248,662 C248,659.790861 246.209139,658 244,658 C241.790861,658 240,659.790861 240,662 C240,664.209139 241.790861,666 244,666 Z')
+              .sleeplog-rating__rating__text 15-30 min
+          .sleeplog-rating__rating.rating-5
+            input#fast-asleep-log__rating-5(type='radio' name='fast-asleep-log' value='5')
+            label(for='fast-asleep-log__rating-5')
+              svg(width='52px' height='51px' viewbox='0 0 52 51' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-294.000000, -640.000000)')
+                    path#Rating-5(d='M320,691 C305.640597,691 294,679.583261 294,665.5 C294,651.416739 305.640597,640 320,640 C334.359403,640 346,651.416739 346,665.5 C346,679.583261 334.359403,691 320,691 Z M328,664.519231 C330.209139,664.519231 332,662.762809 332,660.596154 C332,658.429498 330.209139,656.673077 328,656.673077 C325.790861,656.673077 324,658.429498 324,660.596154 C324,662.762809 325.790861,664.519231 328,664.519231 Z M313,664.519231 C315.209139,664.519231 317,662.762809 317,660.596154 C317,658.429498 315.209139,656.673077 313,656.673077 C310.790861,656.673077 309,658.429498 309,660.596154 C309,662.762809 310.790861,664.519231 313,664.519231 Z M308,669.912646 C308,676.412612 313.372583,681.681877 320,681.681877 C326.627417,681.681877 332,676.412612 332,669.912646 C332,663.412679 327.740894,668.142383 320,668.142383 C312.259106,668.142383 308,663.412679 308,669.912646 Z')
+              .sleeplog-rating__rating__text < 15 min
+        h4 How did you feel when you woke up?
+        .sleeplog-rating
+          .sleeplog-rating__rating.rating-1
+            input#wakeup-log__rating-1(type='radio' name='wakeup-log' value='1')
+            label(for='wakeup-log__rating-1')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g(transform='translate(-22.000000, -641.000000)')
+                  path(d='M48,693 C33.6405965,693 22,681.359403 22,667 C22,652.640597 33.6405965,641 48,641 C62.3594035,641 74,652.640597 74,667 C74,681.359403 62.3594035,693 48,693 Z M56,666 C58.209139,666 60,664.209139 60,662 C60,659.790861 58.209139,658 56,658 C53.790861,658 52,659.790861 52,662 C52,664.209139 53.790861,666 56,666 Z M41,666 C43.209139,666 45,664.209139 45,662 C45,659.790861 43.209139,658 41,658 C38.790861,658 37,659.790861 37,662 C37,664.209139 38.790861,666 41,666 Z M60,680 C60,673.372583 54.627417,668 48,668 C41.372583,668 36,673.372583 36,680 C36,686.627417 40.2591058,681.804974 48,681.804974 C55.7408942,681.804974 60,686.627417 60,680 Z')
+              .sleeplog-rating__rating__text Exhausted
+          .sleeplog-rating__rating.rating-2
+            input#wakeup-log__rating-2(type='radio' name='wakeup-log' value='2')
+            label(for='wakeup-log__rating-2')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-90.000000, -641.000000)')
+                    path(d='M116,693 C101.640597,693 90,681.359403 90,667 C90,652.640597 101.640597,641 116,641 C130.359403,641 142,652.640597 142,667 C142,681.359403 130.359403,693 116,693 Z M127.676254,676.263331 C125.279456,674.063098 121.381431,673 116,673 C110.618569,673 106.720544,674.063098 104.323746,676.263331 C103.916895,676.636816 103.889847,677.269403 104.263331,677.676254 C104.636816,678.083105 105.269403,678.110153 105.676254,677.736669 C107.636808,675.936902 111.072115,675 116,675 C120.927885,675 124.363192,675.936902 126.323746,677.736669 C126.730597,678.110153 127.363184,678.083105 127.736669,677.676254 C128.110153,677.269403 128.083105,676.636816 127.676254,676.263331 Z M123,666 C125.209139,666 127,664.209139 127,662 C127,659.790861 125.209139,658 123,658 C120.790861,658 119,659.790861 119,662 C119,664.209139 120.790861,666 123,666 Z M108,666 C110.209139,666 112,664.209139 112,662 C112,659.790861 110.209139,658 108,658 C105.790861,658 104,659.790861 104,662 C104,664.209139 105.790861,666 108,666 Z')
+              .sleeplog-rating__rating__text Tired
+          .sleeplog-rating__rating.rating-3
+            input#wakeup-log__rating-3(type='radio' name='wakeup-log' value='3')
+            label(for='wakeup-log__rating-3')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-158.000000, -641.000000)')
+                    path#Rating-3(d='M184,693 C169.640597,693 158,681.359403 158,667 C158,652.640597 169.640597,641 184,641 C198.359403,641 210,652.640597 210,667 C210,681.359403 198.359403,693 184,693 Z M191,666 C193.209139,666 195,664.209139 195,662 C195,659.790861 193.209139,658 191,658 C188.790861,658 187,659.790861 187,662 C187,664.209139 188.790861,666 191,666 Z M176,666 C178.209139,666 180,664.209139 180,662 C180,659.790861 178.209139,658 176,658 C173.790861,658 172,659.790861 172,662 C172,664.209139 173.790861,666 176,666 Z M173,675 C172.447715,675 172,675.447715 172,676 C172,676.552285 172.447715,677 173,677 L194,677 C194.552285,677 195,676.552285 195,676 C195,675.447715 194.552285,675 194,675 L173,675 Z')
+              .sleeplog-rating__rating__text Okay
+          .sleeplog-rating__rating.rating-4
+            input#wakeup-log__rating-4(type='radio' name='wakeup-log' value='4')
+            label(for='wakeup-log__rating-4')
+              svg(width='52px' height='52px' viewbox='0 0 52 52' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-226.000000, -641.000000)')
+                    path#Rating-4(d='M252,693 C237.640597,693 226,681.359403 226,667 C226,652.640597 237.640597,641 252,641 C266.359403,641 278,652.640597 278,667 C278,681.359403 266.359403,693 252,693 Z M240.323746,674.736674 C242.720544,676.936908 246.618569,678.000006 252,678.000006 C257.381431,678.000006 261.279456,676.936908 263.676254,674.736674 C264.083105,674.36319 264.110153,673.730603 263.736669,673.323752 C263.363184,672.916901 262.730597,672.889852 262.323746,673.263337 C260.363192,675.063104 256.927885,676.000006 252,676.000006 C247.072115,676.000006 243.636808,675.063104 241.676254,673.263337 C241.269403,672.889852 240.636816,672.916901 240.263331,673.323752 C239.889847,673.730603 239.916895,674.36319 240.323746,674.736674 Z M259,666 C261.209139,666 263,664.209139 263,662 C263,659.790861 261.209139,658 259,658 C256.790861,658 255,659.790861 255,662 C255,664.209139 256.790861,666 259,666 Z M244,666 C246.209139,666 248,664.209139 248,662 C248,659.790861 246.209139,658 244,658 C241.790861,658 240,659.790861 240,662 C240,664.209139 241.790861,666 244,666 Z')
+              .sleeplog-rating__rating__text Rested
+          .sleeplog-rating__rating.rating-5
+            input#wakeup-log__rating-5(type='radio' name='wakeup-log' value='5')
+            label(for='wakeup-log__rating-5')
+              svg(width='52px' height='51px' viewbox='0 0 52 51' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  g(transform='translate(-294.000000, -640.000000)')
+                    path#Rating-5(d='M320,691 C305.640597,691 294,679.583261 294,665.5 C294,651.416739 305.640597,640 320,640 C334.359403,640 346,651.416739 346,665.5 C346,679.583261 334.359403,691 320,691 Z M328,664.519231 C330.209139,664.519231 332,662.762809 332,660.596154 C332,658.429498 330.209139,656.673077 328,656.673077 C325.790861,656.673077 324,658.429498 324,660.596154 C324,662.762809 325.790861,664.519231 328,664.519231 Z M313,664.519231 C315.209139,664.519231 317,662.762809 317,660.596154 C317,658.429498 315.209139,656.673077 313,656.673077 C310.790861,656.673077 309,658.429498 309,660.596154 C309,662.762809 310.790861,664.519231 313,664.519231 Z M308,669.912646 C308,676.412612 313.372583,681.681877 320,681.681877 C326.627417,681.681877 332,676.412612 332,669.912646 C332,663.412679 327.740894,668.142383 320,668.142383 C312.259106,668.142383 308,663.412679 308,669.912646 Z')
+              .sleeplog-rating__rating__text Very Rested
+        h4 Let&apos;s find out why. Check all that apply.
+        .trackables__list
+
+          each trackable in trackables
+            .trackable
+              .trackable__line-1
+                .trackable__checkbox.checkbox
+                  input(type='checkbox' name='trackable' id=`trackable_${trackable.id}` data-id=`${trackable.id}`)
+                  .box
+                  label(for=`trackable_${trackable.id}`)
+                    .trackable__details
+                      p.trackable__details__name= trackable.name
+                      - var timeframeStr
+                      - if (trackable.timeframe === 'Before Bed') timeframeStr = `${trackable.hoursBeforeBed} hours before bed`
+                      - if (trackable.timeframe === 'Anytime Today') timeframeStr = 'Anytime today'
+                      p.trackable__details__timeframe= timeframeStr
+                a.trackable__arrow(href='#')
+                  .arrow.arrow-forward
+                    .arrow__line-2.arrow-dark
+                    .arrow__line-1.arrow-dark
+              if trackable.quantifier
+                .trackable__line-2.hide
+                  p.trackable__quantity-label= `${trackable.quantifier}? (${trackable.quantifierUnits})`
+                  input.trackable__quantity-number(type='text' name='' id=`trackable_${trackable.id}__quantity`)
+
+          if trackables.length <= 0
+            p.empty You don't have any trackables yet. If you want to track something you have to create a trackable for it. Click the button to do so!
+
+          button#new-trackable.btn.btn-secondary + New Trackable        
+        h4 Notes:
+        textarea(name='notes' id='notes' cols='30' rows='10' placeholder='Write some notes about how you slept and how you felt when waking up.')
+        button.btn.btn-primary(type='submit') Log It!

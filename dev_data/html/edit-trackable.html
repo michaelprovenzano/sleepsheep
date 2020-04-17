@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <h1 class="top-nav__title">Trackable</h1>
+      <div class="top-nav__left">
+        <div class="logo"></div>
+        <a class="h1" href="index.html">
+          <div class="arrow arrow-light arrow-back">
+            <div class="arrow__line-2"></div>
+            <div class="arrow__line-1"></div>
+          </div>
+        </a>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container">
+        <form action="" id="trackable-form" class="form trackable-form">
+          <h4>What would you like to track?</h4>
+          <input
+            type="text"
+            name="trackable__name"
+            id="trackable__name"
+            placeholder="Caffeine, exercise, etc"
+            required
+          />
+          <h4>What timeframe?</h4>
+          <div class="button-toggle">
+            <div class="button-toggle__option">
+              <input
+                type="radio"
+                name="trackable-timeframe"
+                id="trackable-timeframe__before-bed"
+              />
+              <label for="trackable-timeframe__before-bed">Before Bed</label>
+            </div>
+            <div class="button-toggle__option">
+              <input
+                type="radio"
+                name="trackable-timeframe"
+                id="trackable-timeframe__anytime-today"
+                checked
+              />
+              <label for="trackable-timeframe__anytime-today"
+                >Anytime Today</label
+              >
+            </div>
+          </div>
+          <input
+            type="text"
+            name="trackable__hours"
+            id="trackable__hours"
+            placeholder="How many hours before bed?"
+          />
+          <h4>Do you want to track more specifics?</h4>
+          <div class="btn-tags__container">
+            <div class="btn-tag">
+              <input type="checkbox" id="btn-tag__how-many" />
+              <label for="btn-tag__how-many">
+                <div class="icon plus-icon">
+                  <div class="plus-icon__horz"></div>
+                  <div class="plus-icon__vert"></div>
+                </div>
+                <div class="btn-tag__label-text">How many?</div>
+              </label>
+            </div>
+            <div class="btn-tag">
+              <input type="checkbox" id="btn-tag__how-long" />
+              <label for="btn-tag__how-long">
+                <div class="icon plus-icon">
+                  <div class="plus-icon__horz"></div>
+                  <div class="plus-icon__vert"></div>
+                </div>
+                <div class="btn-tag__label-text">How long?</div>
+              </label>
+            </div>
+            <div class="btn-tag">
+              <input type="checkbox" id="btn-tag__how-much" />
+              <label for="btn-tag__how-much">
+                <div class="icon plus-icon">
+                  <div class="plus-icon__horz"></div>
+                  <div class="plus-icon__vert"></div>
+                </div>
+                <div class="btn-tag__label-text">How much?</div>
+              </label>
+            </div>
+          </div>
+          <h4>Write a short description if you would like.</h4>
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Write some notes about how you slept and how you felt when waking up."
+          ></textarea>
+          <div class="cols">
+            <button class="btn btn-secondary" type="submit">Delete</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="js/trackable.js"></script>
+  </body>
+</html>

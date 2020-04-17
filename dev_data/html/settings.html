@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <h1 class="top-nav__title">My History</h1>
+      <div class="top-nav__left">
+        <div class="logo"></div>
+        <a class="h1" href="index.html">
+          <div class="arrow arrow-light arrow-back icon">
+            <div class="arrow__line-2"></div>
+            <div class="arrow__line-1"></div>
+          </div>
+        </a>
+      </div>
+    </nav>
+    <div class="content">
+      <form action="" class="my-settings">
+        <p class="my-settings__divider">
+          <span class="container">Account</span>
+        </p>
+
+        <div class="container my-settings__section">
+          <div class="my-settings__input-text">
+            <input type="text" name="name" id="" placeholder="Name" />
+          </div>
+          <div class="my-settings__input-text">
+            <input type="text" name="email" id="" placeholder="Email" />
+          </div>
+          <div class="my-settings__input-text">
+            <input
+              type="password"
+              name="password"
+              id=""
+              placeholder="New Password"
+            />
+          </div>
+          <div class="my-settings__input-text">
+            <input
+              type="password"
+              name="password-confirm"
+              id=""
+              placeholder="New Password Confirm"
+            />
+          </div>
+        </div>
+
+        <p class="my-settings__divider">
+          <span class="container">Notifications</span>
+        </p>
+
+        <div class="container my-settings__section">
+          <div class="my-settings__input-toggle checkbox">
+            <input type="checkbox" name="" id="email-reminders" />
+            <div class="box"></div>
+            <label for="email-reminders">Email Reminders</label>
+          </div>
+        </div>
+
+        <p class="my-settings__divider">
+          <span class="container">Connected Devices</span>
+        </p>
+
+        <div class="container my-settings__section">
+          <div class="my-settings__input-toggle checkbox">
+            <input type="checkbox" name="" id="email-reminders" />
+            <div class="box"></div>
+            <label for="email-reminders">Email Reminders</label>
+          </div>
+        </div>
+
+        <div class="container my-settings__section my-settings__submit">
+          <button class="btn btn-secondary">Delete Account</button>
+          <button class="btn btn-primary" type="submit">Save Settings</button>
+        </div>
+      </form>
+    </div>
+    <script src="js/trackable.js"></script>
+  </body>
+</html>

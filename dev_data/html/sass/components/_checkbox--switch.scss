@@ -1,0 +1,82 @@
+:root {
+  --inactive-color: lightgray;
+  --inactive-hover-color: darkgray;
+  --slider-width: 46px;
+  --slider-height: 28px;
+  --slider-padding: 4px;
+}
+
+$active-color: $dark-blue;
+$active-hover-color: rgba($dark-blue, 0.75);
+
+.switch--container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.slider {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  margin-right: 10px;
+  background: var(--inactive-color);
+  border-radius: 10000px;
+  padding: var(--slider-padding);
+  transition: 0.3s;
+}
+
+/* The order of these two is important */
+.switch--container:hover input ~ .checkmark {
+  background: var(--inactive-hover-color);
+}
+
+.switch--container input:checked ~ .checkmark {
+  background-color: $active-color;
+}
+
+.switch--container input:checked:hover ~ .checkmark {
+  background: $active-hover-color;
+}
+
+.checkmark:after {
+  content: '';
+  background: white;
+  display: block;
+  position: absolute;
+  height: calc(var(--slider-height) - (var(--slider-padding) * 2));
+  width: calc(var(--slider-height) - (var(--slider-padding) * 2));
+  border-radius: 100%;
+  transition: 0.3s;
+}
+
+.switch--container input:checked ~ .checkmark:after {
+  margin-left: calc(var(--slider-width) - var(--slider-height));
+}
+
+.switch--container input ~ .label-text {
+  color: var(--inactive-color);
+  transition: 0.3s;
+}
+
+.switch--container input:hover ~ .label-text {
+  color: var(--inactive-hover-color);
+}
+
+.switch--container input:checked ~ .label-text {
+  color: $active-color;
+}
+.switch--container input:checked:hover ~ .label-text {
+  color: $active-hover-color;
+}

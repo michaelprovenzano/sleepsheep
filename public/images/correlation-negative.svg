@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>correlation-negative</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-18.000000, -377.000000)" fill="#6F0273" fill-rule="nonzero">
+            <path d="M29,399 C22.9248678,399 18,394.075132 18,388 C18,381.924868 22.9248678,377 29,377 C35.0751322,377 40,381.924868 40,388 C40,394.075132 35.0751322,399 29,399 Z M32.5,387 C33.3284271,387 34,386.328427 34,385.5 C34,384.671573 33.3284271,384 32.5,384 C31.6715729,384 31,384.671573 31,385.5 C31,386.328427 31.6715729,387 32.5,387 Z M26.5,387 C27.3284271,387 28,386.328427 28,385.5 C28,384.671573 27.3284271,384 26.5,384 C25.6715729,384 25,384.671573 25,385.5 C25,386.328427 25.6715729,387 26.5,387 Z M34,393.419646 C34,390.426458 31.7614237,388 29,388 C26.2385763,388 24,390.426458 24,393.419646 C24,396.412833 25.7746274,394.234839 29,394.234839 C32.2253726,394.234839 34,396.412833 34,393.419646 Z" id="correlation-negative"></path>
+        </g>
+    </g>
+</svg>

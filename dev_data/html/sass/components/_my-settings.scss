@@ -1,0 +1,33 @@
+.my-settings {
+  input[type='text'],
+  input[type='password'] {
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  &__submit {
+    margin: 100px auto;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--white);
+    background: var(--dark-blue);
+  }
+
+  &__section {
+    margin-bottom: 30px;
+  }
+
+  &__input-toggle {
+    margin-bottom: 20px;
+  }
+}

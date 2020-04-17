@@ -1,0 +1,50 @@
+.arrow {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  transition: 0.15s cubic-bezier(0.455, 0.39, 1, 1.5);
+
+  &-back {
+    transform: rotate(-45deg);
+  }
+
+  &-forward {
+    transform: rotate(135deg);
+  }
+
+  &-down {
+    transform: rotate(225deg);
+  }
+  &-up {
+    transform: rotate(45deg);
+  }
+
+  &-dark div {
+    background-color: var(--text-color-dark);
+  }
+
+  &-light div {
+    background-color: var(--white);
+  }
+
+  &__line-1 {
+    display: inline-block;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 500px;
+  }
+
+  &__line-2 {
+    display: inline-block;
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 500px;
+  }
+}

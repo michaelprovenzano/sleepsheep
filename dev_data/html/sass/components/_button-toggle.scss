@@ -1,0 +1,30 @@
+.button-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--dark-blue);
+  border-radius: 2px;
+  color: var(--dark-blue);
+  margin-bottom: 22px;
+
+  &__option {
+    flex-grow: 1;
+
+    input {
+      display: none;
+    }
+
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 45px;
+      cursor: pointer;
+    }
+
+    input:checked ~ label {
+      color: var(--white);
+      background: var(--dark-blue);
+    }
+  }
+}

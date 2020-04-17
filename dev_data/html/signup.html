@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="top-nav__left">
+        <div class="logo"></div>
+        <a class="h1" href="index.html">Sleepily</a>
+      </div>
+      <div class="top-nav__right">
+        <input type="checkbox" name="navigation_checkbox" id="nav_toggle" />
+        <ul class="top-nav__right-menu">
+          <li class="top-nav__right-menu__item">
+            <a href="#" alt="" class="menu-item">About</a>
+          </li>
+          <li class="top-nav__right-menu__item">
+            <a href="#" class="btn btn-secondary">Log In</a>
+          </li>
+          <li class="top-nav__right-menu__item">
+            <a href="#" class="btn btn-primary">Sign Up</a>
+          </li>
+        </ul>
+
+        <div class="menu-icon">
+          <label for="nav_toggle">
+            <svg
+              class="icon"
+              width="30px"
+              height="18px"
+              viewBox="0 0 30 18"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g id="Symbols" stroke="none" stroke-width="1">
+                <g id="menu" transform="translate(-14.000000, -13.000000)">
+                  <path
+                    d="M15,13 L43,13 C43.5522847,13 44,13.4477153 44,14 C44,14.5522847 43.5522847,15 43,15 L15,15 C14.4477153,15 14,14.5522847 14,14 C14,13.4477153 14.4477153,13 15,13 Z M23,21 L43,21 C43.5522847,21 44,21.4477153 44,22 C44,22.5522847 43.5522847,23 43,23 L23,23 C22.4477153,23 22,22.5522847 22,22 C22,21.4477153 22.4477153,21 23,21 Z M15,29 L43,29 C43.5522847,29 44,29.4477153 44,30 C44,30.5522847 43.5522847,31 43,31 L15,31 C14.4477153,31 14,30.5522847 14,30 C14,29.4477153 14.4477153,29 15,29 Z"
+                    id="Combined-Shape"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </label>
+        </div>
+
+        <div class="top-nav__right-menu-background">&nbsp;</div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container">
+        <form action="" id="login-form" class="form login-form">
+          <input type="text" name="email" id="" placeholder="Email" required />
+          <input
+            type="text"
+            name="password"
+            id=""
+            placeholder="Password"
+            required
+          />
+          <input
+            type="text"
+            name="password-confirm"
+            id=""
+            placeholder="Confirm Password"
+            required
+          />
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+        <div class="alternate-login">
+          <p class="center">Don't have an account?</p>
+          <a href="login.html" class="btn btn-secondary full-width">Log In</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

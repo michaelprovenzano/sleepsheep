@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Sleepily | #{title}
+    link(rel='stylesheet' href='/css/style.css')
+    //- link(rel='shortcut icon' type="image/png" href='/images/favicon.ico')
+
+  if nav === 'back'
+    include _nav_back 
+  else if user
+    include _nav_loggedIn
+  else
+    include _nav
+  .spinner-wrapper
+    div( class="spinner spinner3")
+
+  block content
+
+  //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js')
+  script(src='/bundle.js')
