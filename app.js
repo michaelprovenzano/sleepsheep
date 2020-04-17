@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const userRouter = require('./routes/userRouter');
@@ -36,7 +37,7 @@ const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message:
-    'Too many requests have been sent from this IP. Please try again in an hour.'
+    'Too many requests have been sent from this IP. Please try again in an hour.',
 });
 app.use('/api', limiter);
 
@@ -54,9 +55,11 @@ app.use(xss());
 // Prevent parameter pollution
 // app.use(hpp());
 
+// Compress all JSON and text sent to user
+app.use(compression());
+
 // Test middleware
 app.use((req, res, next) => {
-  // console.log(req.cookies);
   req.requestTime = new Date().toISOString();
   next();
 });

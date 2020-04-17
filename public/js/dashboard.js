@@ -4,7 +4,6 @@ import axios from 'axios';
 window.addEventListener('beforeprint', beforePrintHandler);
 
 const beforePrintHandler = () => {
-  console.log('beforeprint');
   for (var id in Chart.instances) {
     Chart.instances[id].onResize();
     Chart.instances[id].options.legend.display = false;
@@ -12,11 +11,11 @@ const beforePrintHandler = () => {
 };
 
 const expandTrackableBtns = [
-  ...document.querySelectorAll('.trackable__summary')
+  ...document.querySelectorAll('.trackable__summary'),
 ];
 if (expandTrackableBtns) {
-  expandTrackableBtns.forEach(el =>
-    el.addEventListener('click', event => {
+  expandTrackableBtns.forEach((el) =>
+    el.addEventListener('click', (event) => {
       el.nextSibling.classList.toggle('stats__hidden');
       const arrow = el.getElementsByClassName('arrow')[0];
       arrow.classList.toggle('arrow-up');
@@ -35,7 +34,7 @@ const sleeplogChart = (labels, data, trackables) => {
   const secondaryColor_1 = darkblue;
 
   const myChart = document.getElementById('my-chart');
-  // console.log({ labels, data, trackables });
+
   const allData = [
     {
       label: 'Sleep Quality',
@@ -43,8 +42,8 @@ const sleeplogChart = (labels, data, trackables) => {
       backgroundColor: primaryColor_1,
       borderColor: primaryColor_1,
       fill: false,
-      lineTension: 0
-    }
+      lineTension: 0,
+    },
   ];
   for (let thisData in trackables) {
     allData.push({
@@ -54,7 +53,7 @@ const sleeplogChart = (labels, data, trackables) => {
       backgroundColor: secondaryColor_1,
       borderColor: secondaryColor_1,
       fill: false,
-      lineTension: 0
+      lineTension: 0,
     });
   }
 
@@ -71,38 +70,38 @@ const sleeplogChart = (labels, data, trackables) => {
       type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data: {
         labels: labels,
-        datasets: allData
+        datasets: allData,
       },
       options: {
         title: {
           display: false,
           text: 'Sleeplogs',
           fontColor: secondaryColor_1,
-          fontSize: 20
+          fontSize: 20,
         },
         legend: {
           display: false,
           position: 'right',
           labels: {
-            fontColor: secondaryColor_1
-          }
+            fontColor: secondaryColor_1,
+          },
         },
         layout: {
-          padding: {} // top left right bottom
+          padding: {}, // top left right bottom
         },
         scales: {
           yAxes: [
             {
               ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
+                beginAtZero: true,
+              },
+            },
+          ],
         },
         tooltips: {
-          enabled: true
-        }
-      }
+          enabled: true,
+        },
+      },
     };
 
     let chart = new Chart(myChart, chartOptions);
@@ -126,8 +125,8 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
     const limitedData = {
       data: {
         sleepQuality: [],
-        insomnia: []
-      }
+        insomnia: [],
+      },
     };
     const sleepQualityArr = [];
     const insomniaArr = [];
@@ -141,12 +140,10 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
         limitedData.data.insomnia.push(trackables[thisData].data.insomnia[i]);
       }
     });
-    console.log(limitedLabels);
-    console.log(limitedData);
 
     // Add arrays for dotted lines
-    labels.forEach(el => sleepQualityArr.push(sleepQuality));
-    labels.forEach(el => insomniaArr.push(insomnia));
+    labels.forEach((el) => sleepQualityArr.push(sleepQuality));
+    labels.forEach((el) => insomniaArr.push(insomnia));
 
     const allData = [
       {
@@ -158,7 +155,7 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
         fill: false,
         lineTension: 0,
         type: 'line',
-        pointRadius: 0
+        pointRadius: 0,
       },
       {
         label: 'Insomnia Average',
@@ -169,8 +166,8 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
         fill: false,
         lineTension: 0,
         type: 'line',
-        pointRadius: 0
-      }
+        pointRadius: 0,
+      },
     ];
     allData.push({
       label: `${trackables[thisData].label} | Sleep Quality`,
@@ -178,7 +175,7 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
       backgroundColor: primaryColor_1,
       borderColor: primaryColor_1,
       fill: false,
-      lineTension: 0
+      lineTension: 0,
     });
 
     allData.push({
@@ -187,7 +184,7 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
       backgroundColor: secondaryColor_1,
       borderColor: secondaryColor_1,
       fill: false,
-      lineTension: 0
+      lineTension: 0,
     });
     const myChart = document.getElementById(`trackable-${thisData}`);
     if (myChart) {
@@ -202,27 +199,27 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
         type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
         data: {
           labels: limitedLabels,
-          datasets: allData
+          datasets: allData,
         },
         options: {
           title: {
             display: false,
             text: trackables[thisData].label,
             fontColor: secondaryColor_1,
-            fontSize: 20
+            fontSize: 20,
           },
           legend: {
             display: true,
             position: 'bottom',
             labels: {
-              fontColor: secondaryColor_1
-            }
+              fontColor: secondaryColor_1,
+            },
           },
           layout: {
             padding: {
               top: 40,
-              bottom: 0
-            } // top left right bottom
+              bottom: 0,
+            }, // top left right bottom
           },
           responsive: true,
           maintainAspectRatio: false,
@@ -230,15 +227,15 @@ const trackableChart = (labels, sleepQuality, insomnia, trackables) => {
             yAxes: [
               {
                 ticks: {
-                  beginAtZero: true
-                }
-              }
-            ]
+                  beginAtZero: true,
+                },
+              },
+            ],
           },
           tooltips: {
-            enabled: true
-          }
-        }
+            enabled: true,
+          },
+        },
       };
 
       let chart = new Chart(myChart, chartOptions);
@@ -251,16 +248,15 @@ export const loadChart = async () => {
     let user;
     await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:8000/api/v1/users/me'
-    }).then(res => {
+      url: '/api/v1/users/me',
+    }).then((res) => {
       user = res.data.data.user;
     });
-    // console.log(user);
 
     await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:8000/api/v1/sleepLogs?sort=-sleepStart'
-    }).then(res => {
+      url: '/api/v1/sleepLogs?sort=-sleepStart',
+    }).then((res) => {
       const sleeplogs = [...res.data.data.doc];
       let sleeplogDates = [];
       let sleeplogQuality = [];
@@ -271,13 +267,13 @@ export const loadChart = async () => {
       // Create an object for each trackable
       sleeplogs.forEach((el, i) => {
         if (i < 30) {
-          el.trackables.forEach(trk => {
+          el.trackables.forEach((trk) => {
             if (!allTrackables.includes(trk.trackable._id)) {
               allTrackables.push(trk.trackable._id);
               trackables[trk.trackable._id] = {};
               trackables[trk.trackable._id].data = {
                 insomnia: [],
-                sleepQuality: []
+                sleepQuality: [],
               };
               trackables[trk.trackable._id].label = trk.trackable.name;
             }
@@ -292,7 +288,7 @@ export const loadChart = async () => {
           let thisDate = new Date(el.sleepStart);
           thisDate = thisDate.toLocaleString('en-US', {
             month: '2-digit',
-            day: 'numeric'
+            day: 'numeric',
           });
           sleeplogDates.push(thisDate);
 
@@ -303,7 +299,7 @@ export const loadChart = async () => {
           sleeplogInsomnia.push(el.timeToFallAsleep);
 
           // Assemble trackables data
-          allTrackables.forEach(trk => {
+          allTrackables.forEach((trk) => {
             let insomniaData = '';
             let sleepQualityData = '';
             const thisId = trk;
@@ -320,9 +316,9 @@ export const loadChart = async () => {
         }
       });
 
-      allTrackables.forEach(trk => {
+      allTrackables.forEach((trk) => {
         const trackableData = trackables[trk].data.sleepQuality.filter(
-          el => el !== ''
+          (el) => el !== ''
         );
         const trackableAvgQuality =
           trackableData.reduce((total, el) => total + el) /
@@ -339,11 +335,6 @@ export const loadChart = async () => {
         trackables
       );
     });
-
-    // const res = await axios({
-    //   method: 'GET',
-    //   url: 'http://127.0.0.1:8000/api/v1/users/me/'
-    // });
   } catch (err) {
     console.log(err);
   }

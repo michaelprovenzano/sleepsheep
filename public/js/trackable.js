@@ -20,7 +20,7 @@ export const createATrackable = async (data) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/trackables',
+      url: '/api/v1/trackables',
       data,
     });
 
@@ -48,7 +48,7 @@ export const deleteATrackable = async (event) => {
   try {
     const res = await axios({
       method: 'DELETE',
-      url: `http://127.0.0.1:8000/api/v1/trackables/${id}`,
+      url: `/api/v1/trackables/${id}`,
     });
 
     showAlert('success', 'Your trackable has been deleted!');
@@ -62,12 +62,11 @@ export const deleteATrackable = async (event) => {
 
 export const updateATrackable = async (event, formData) => {
   const id = getId(event, 'data-trackable-id');
-  console.log(formData.quantifier);
 
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://127.0.0.1:8000/api/v1/trackables/${id}`,
+      url: `/api/v1/trackables/${id}`,
       data: formData,
     });
 
@@ -86,7 +85,7 @@ export const getMyTrackables = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:8000/api/v1/trackables',
+      url: '/api/v1/trackables',
     });
   } catch (err) {}
 };

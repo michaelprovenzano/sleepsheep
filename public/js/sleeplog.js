@@ -6,7 +6,7 @@ export const createASleeplog = async (data) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/sleepLogs',
+      url: '/api/v1/sleepLogs',
       data,
     });
 
@@ -27,7 +27,7 @@ export const deleteASleeplog = async (event) => {
 
     const res = await axios({
       method: 'DELETE',
-      url: `http://127.0.0.1:8000/api/v1/sleepLogs/${id}`,
+      url: `/api/v1/sleepLogs/${id}`,
     });
 
     showAlert('success', 'Your sleeplog has been deleted!');
@@ -45,7 +45,7 @@ export const updateASleeplog = async (event, formData) => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://127.0.0.1:8000/api/v1/sleepLogs/${id}`,
+      url: `/api/v1/sleepLogs/${id}`,
       data: formData,
     });
 

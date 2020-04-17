@@ -12,7 +12,7 @@
     "debug": "ndb server.js",
     "compile:css": "node-sass -rw dev_data/html/sass/main.scss public/css/style.css -w",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public --out-file bundle.js",
-    "build:js": "parcel watch ./public/js/index.js --out-dir ./public --out-file bundle.js"
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public --out-file bundle.js"
   },
   "author": "Michael Provenzano",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "babel-polyfill": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^2.9.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

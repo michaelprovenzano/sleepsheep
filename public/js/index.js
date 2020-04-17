@@ -121,7 +121,6 @@ if (resetPasswordForm) {
 if (newSleeplogForm) {
   // pre-fill form if one was already started
   const previousData = getTempSleeplog();
-  console.log(previousData);
 
   if (previousData) fillSleeplogFormData(previousData);
 
@@ -254,7 +253,6 @@ function fillSleeplogFormData(data) {
     const sleepStart = new Date(data.log.sleepStart);
     const sleepEnd = new Date(data.log.sleepEnd);
 
-    console.log(formatDate(data.log.sleepStart));
     document.getElementById('sleep-date').value = formatDate(sleepStart);
     document.getElementById('sleep-time').value = formatTime(sleepStart);
     document.getElementById('wakeup-date').value = formatDate(sleepEnd);

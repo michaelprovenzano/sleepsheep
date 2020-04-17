@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-export const updatePassword = async data => {
+export const updatePassword = async (data) => {
   const passwordData = {
     currentPassword: data.currPass,
     password: data.newPass,
-    passwordConfirm: data.newPassConfirm
+    passwordConfirm: data.newPassConfirm,
   };
   try {
     const res = await axios({
       method: 'PATCH',
-      url: 'http://127.0.0.1:8000/api/v1/users/update-password/',
-      data: passwordData
+      url: '/api/v1/users/update-password/',
+      data: passwordData,
     });
 
     if (res.data.status === 'success') {
@@ -23,17 +23,17 @@ export const updatePassword = async data => {
   }
 };
 
-export const updateUserData = async data => {
+export const updateUserData = async (data) => {
   const userData = {
     name: data.name,
-    email: data.email
+    email: data.email,
   };
 
   try {
     const res = await axios({
       method: 'PATCH',
-      url: 'http://127.0.0.1:8000/api/v1/users/update-me/',
-      data: userData
+      url: '/api/v1/users/update-me/',
+      data: userData,
     });
 
     if (res.data.status === 'success') {
@@ -55,6 +55,6 @@ export const settingsFormData = () => {
     email,
     currPass,
     newPass,
-    newPassConfirm
+    newPassConfirm,
   };
 };

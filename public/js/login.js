@@ -5,11 +5,11 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email,
-        password
-      }
+        password,
+      },
     });
 
     if (res.data.status === 'success') {
@@ -32,7 +32,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:8000/api/v1/users/logout'
+      url: '/api/v1/users/logout',
     });
 
     if (res.data.status === 'success') {
@@ -58,13 +58,13 @@ export const signup = async (name, email, password, passwordConfirm) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/signup',
+      url: '/api/v1/users/signup',
       data: {
         name,
         email,
         password,
-        passwordConfirm
-      }
+        passwordConfirm,
+      },
     });
 
     if (res.data.status === 'success') {
@@ -83,14 +83,14 @@ export const signup = async (name, email, password, passwordConfirm) => {
   }
 };
 
-export const sendPasswordResetLink = async email => {
+export const sendPasswordResetLink = async (email) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/forgot-password',
+      url: '/api/v1/users/forgot-password',
       data: {
-        email
-      }
+        email,
+      },
     });
 
     if (res.data.status === 'success') {
@@ -108,11 +108,11 @@ export const resetPassword = async (newPassword, newPasswordConfirm, token) => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://127.0.0.1:8000/api/v1/users/reset-password/${token}`,
+      url: `/api/v1/users/reset-password/${token}`,
       data: {
         password: newPassword,
-        passwordConfirm: newPasswordConfirm
-      }
+        passwordConfirm: newPasswordConfirm,
+      },
     });
 
     if (res.data.status === 'success') {
