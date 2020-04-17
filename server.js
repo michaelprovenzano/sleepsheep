@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
   console.log(err.name, err.message);
   console.log('UNCAUGHT EXCEPTION. Shutting down...');
   process.exit(1);
@@ -20,7 +20,7 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => console.log('DB Connection successful!'));
 
@@ -30,11 +30,18 @@ const server = app.listen(port, () => {
 });
 
 // This handles any errors that happen outside of express (Database connection errors, etc.)
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
   console.log('UNHANDLED REJECTION. Shutting down...');
 
   server.close(() => {
     process.exit(1);
+  });
+});
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECIEVED. Shutting down...');
+  server.close(() => {
+    console.log('Process terminated');
   });
 });
