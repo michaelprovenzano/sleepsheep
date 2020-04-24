@@ -12410,11 +12410,11 @@ if (updateSleeplogForm) {
 if (newSleeplogForm || updateSleeplogForm) {
   $('.date-picker').pickadate({
     format: 'mm-dd-yyyy',
-    formatSubmit: 'yyyy-mm-dd'
+    formatSubmit: 'yyyy/mm/dd'
   });
   $('.time-picker').pickatime({
     format: 'h:i A',
-    formatSubmit: 'HH:i'
+    formatSubmit: 'HH:i:00'
   });
 }
 
