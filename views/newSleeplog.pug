@@ -8,16 +8,20 @@ block content
         p.sleeplog-date__date
         .sleeplog-date__divider
       form#new-sleeplog-form.form(action='')
-        h4 What time did you go to bed?
+        h4 What time did you fall asleep?
         .datetimepicker
-          input#sleep-date.date-picker(type='date')
+          input#sleep-date.date-picker(type='text' name='sleep-date')
+          input#sleep-date_hidden(type='hidden' name='sleep-date')
           span
-          input#sleep-time.time-picker(type='time')
+          input#sleep-time.time-picker(type='text' name='sleep-time')
+          input#sleep-time_hidden(type='hidden' name='sleep-time')
         h4 What time did you wake up?
         .datetimepicker
-          input#wakeup-date.date-picker(type='date')
+          input#wakeup-date.date-picker(type='text' name='wakeup-date')
+          input#wakeup-date_hidden(type='hidden' name='wakeup-date')
           span
-          input#wakeup-time.time-picker(type='time')
+          input#wakeup-time.time-picker(type='text' name='wakeup-time')
+          input#wakeup-time_hidden(type='hidden' name='wakeup-time')
         h4 After getting into bed, you fell asleep...
         .sleeplog-rating
           .sleeplog-rating__rating.rating-1

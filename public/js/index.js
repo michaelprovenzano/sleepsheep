@@ -23,8 +23,8 @@ import {
 import { getUser } from './user';
 import { loadChart } from './dashboard';
 import { settingsFormData, updatePassword, updateUserData } from './settings';
-import Today from './Today';
 import pickadate from 'pickadate';
+import moment from 'moment';
 
 // DOM ELEMENTS
 const spinner = document.querySelector('.spinner-wrapper');
@@ -121,22 +121,26 @@ if (resetPasswordForm) {
 //
 
 if (newSleeplogForm) {
-  const today = new Today();
-  document.querySelector(
-    '.sleeplog-date__day'
-  ).innerText = today.date.toLocaleString('en-US', { weekday: 'long' });
-  document.querySelector(
-    '.sleeplog-date__date'
-  ).innerText = today.date.toLocaleString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
+  let roundedMin;
+  let end = moment();
+  if (end.format('mm') % 5 > 0) {
+    roundedMin = Math.round(end.format('mm') / 5) * 5;
+    end.set('minute', roundedMin);
+  }
+  let start = moment().subtract(8, 'hours');
+  if (roundedMin) start.set('minute', roundedMin);
 
-  document.getElementById('sleep-date').value = today.sleepStartDate;
-  document.getElementById('sleep-time').value = today.sleepStartTime;
-  document.getElementById('wakeup-date').value = today.sleepEndDate;
-  document.getElementById('wakeup-time').value = today.sleepEndTime;
+  document.querySelector('.sleeplog-date__day').innerText = start.format(
+    'dddd'
+  );
+  document.querySelector('.sleeplog-date__date').innerText = start.format(
+    'MMMM DD, YYYY'
+  );
+
+  document.getElementById('sleep-date').value = start.format('ddd, MM/DD/YY');
+  document.getElementById('sleep-time').value = start.format('hh:mm A');
+  document.getElementById('wakeup-date').value = end.format('ddd, MM/DD/YY');
+  document.getElementById('wakeup-time').value = end.format('hh:mm A');
 
   // pre-fill form if one was already started
   const previousData = getTempSleeplog();
@@ -163,14 +167,18 @@ if (updateSleeplogForm) {
   });
 }
 
+// Pickadate functionality
 if (newSleeplogForm || updateSleeplogForm) {
   $('.date-picker').pickadate({
-    format: 'mm-dd-yyyy',
-    formatSubmit: 'yyyy/mm/dd',
+    format: 'ddd, mm/dd/yy',
+    formatSubmit: 'yyyy-mm-dd',
+    hiddenName: true,
   });
   $('.time-picker').pickatime({
-    format: 'h:i A',
-    formatSubmit: 'HH:i:00',
+    format: 'hh:i A',
+    formatSubmit: 'hh:i:00',
+    hiddenName: true,
+    interval: 5,
   });
 }
 
@@ -228,12 +236,14 @@ if (updateSettingsForm) {
 }
 
 function sleeplogFormData() {
-  const sleepStartDate = document.getElementById('sleep-date').value;
-  const sleepStartTime = document.getElementById('sleep-time').value;
-  const sleepEndDate = document.getElementById('wakeup-date').value;
-  const sleepEndTime = document.getElementById('wakeup-time').value;
+  const sleepStartDate = document.getElementsByName('sleep-date')[0].value;
+  const sleepStartTime = document.getElementsByName('sleep-time')[0].value;
+  const sleepEndDate = document.getElementsByName('wakeup-date')[0].value;
+  const sleepEndTime = document.getElementsByName('wakeup-time')[0].value;
   const notes = document.getElementById('notes').value;
   const sleepStart = new Date(`${sleepStartDate} ${sleepStartTime}`);
+  alert(`${sleepStartDate} ${sleepStartTime}`);
+
   const sleepEnd = new Date(`${sleepEndDate} ${sleepEndTime}`);
 
   let timeToFallAsleep;

@@ -8,14 +8,14 @@ block content
         p.sleeplog-date__date= sleeplog.sleepStart.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric'} )
         .line__divider
       form#update-sleeplog-form.form(action='' data-sleeplog-id=`${sleeplog.id}`)
-        h4 What time did you go to bed?
+        h4 What time did you fall asleep?
         .datetimepicker
-          input#sleep-date.date-picker(type='date' value=`${sleeplog.sleepStartDate}`)
+          input#sleep-date.date-picker(type='text' value=`${sleeplog.sleepStartDate.replace(/-/g, '/')}`)
           span
           input#sleep-time.time-picker(type='time' value=`${sleeplog.sleepStartTime}`)
         h4 What time did you wake up?
         .datetimepicker
-          input#wakeup-date.date-picker(type='date' value=`${sleeplog.sleepEndDate}`)
+          input#wakeup-date.date-picker(type='text' value=`${sleeplog.sleepEndDate.replace(/-/g, '/')}`)
           span
           input#wakeup-time.time-picker(type='time' value=`${sleeplog.sleepEndTime}`)
         h4 After getting into bed, you fell asleep...
