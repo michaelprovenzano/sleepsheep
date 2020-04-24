@@ -10,14 +10,14 @@ block content
       form#update-sleeplog-form.form(action='' data-sleeplog-id=`${sleeplog.id}`)
         h4 What time did you go to bed?
         .datetimepicker
-          input#sleep-date(type='date' value=`${sleeplog.sleepStartDate}`)
+          input#sleep-date.date-picker(type='date' value=`${sleeplog.sleepStartDate}`)
           span
-          input#sleep-time(type='time' value=`${sleeplog.sleepStartTime}`)
+          input#sleep-time.time-picker(type='time' value=`${sleeplog.sleepStartTime}`)
         h4 What time did you wake up?
         .datetimepicker
-          input#wakeup-date(type='date' value=`${sleeplog.sleepEndDate}`)
+          input#wakeup-date.date-picker(type='date' value=`${sleeplog.sleepEndDate}`)
           span
-          input#wakeup-time(type='time' value=`${sleeplog.sleepEndTime}`)
+          input#wakeup-time.time-picker(type='time' value=`${sleeplog.sleepEndTime}`)
         h4 After getting into bed, you fell asleep...
         .sleeplog-rating
           .sleeplog-rating__rating.rating-1

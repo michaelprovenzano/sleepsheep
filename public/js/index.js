@@ -24,6 +24,7 @@ import { getUser } from './user';
 import { loadChart } from './dashboard';
 import { settingsFormData, updatePassword, updateUserData } from './settings';
 import Today from './Today';
+import pickadate from 'pickadate';
 
 // DOM ELEMENTS
 const spinner = document.querySelector('.spinner-wrapper');
@@ -159,6 +160,17 @@ if (updateSleeplogForm) {
     e.preventDefault();
     const formData = sleeplogFormData();
     updateASleeplog(e, formData);
+  });
+}
+
+if (newSleeplogForm || updateSleeplogForm) {
+  $('.date-picker').pickadate({
+    format: 'mm-dd-yyyy',
+    formatSubmit: 'yyyy-mm-dd',
+  });
+  $('.time-picker').pickatime({
+    format: 'h:i A',
+    formatSubmit: 'HH:i',
   });
 }
 
