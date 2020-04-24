@@ -137,9 +137,9 @@ if (newSleeplogForm) {
     'MMMM DD, YYYY'
   );
 
-  document.getElementById('sleep-date').value = start.format('ddd, MM/DD/YY');
+  document.getElementById('sleep-date').value = start.format('ddd, MM/DD/YYYY');
   document.getElementById('sleep-time').value = start.format('hh:mm A');
-  document.getElementById('wakeup-date').value = end.format('ddd, MM/DD/YY');
+  document.getElementById('wakeup-date').value = end.format('ddd, MM/DD/YYYY');
   document.getElementById('wakeup-time').value = end.format('hh:mm A');
 
   // pre-fill form if one was already started
@@ -170,13 +170,13 @@ if (updateSleeplogForm) {
 // Pickadate functionality
 if (newSleeplogForm || updateSleeplogForm) {
   $('.date-picker').pickadate({
-    format: 'ddd, mm/dd/yy',
+    format: 'ddd, mm/dd/yyyy',
     formatSubmit: 'yyyy-mm-dd',
     hiddenName: true,
   });
   $('.time-picker').pickatime({
     format: 'hh:i A',
-    formatSubmit: 'hh:i:00',
+    formatSubmit: 'HH:i:00',
     hiddenName: true,
     interval: 5,
   });
