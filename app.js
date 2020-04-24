@@ -55,7 +55,11 @@ app.use(mongoSanitize());
 app.use(xss());
 
 // Prevent parameter pollution
-// app.use(hpp());
+app.use(
+  hpp({
+    whitelist: ['sleepQuality', 'timeToFallAsleep'],
+  })
+);
 
 // Compress all JSON and text sent to user
 app.use(compression());
