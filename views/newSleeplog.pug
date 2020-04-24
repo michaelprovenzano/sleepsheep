@@ -1,24 +1,23 @@
 extends base
 
 block content
-  - const today = new Today();
   .content
     .container
       .sleeplog-date
-        h2.sleeplog-date__day= today.date.toLocaleString('en-US', { weekday: 'long' })
-        p.sleeplog-date__date= today.date.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric'} )
+        h2.sleeplog-date__day
+        p.sleeplog-date__date
         .sleeplog-date__divider
       form#new-sleeplog-form.form(action='')
         h4 What time did you go to bed?
         .datetimepicker
-          input#sleep-date(type='date' value=`${today.sleepStartDate}`)
+          input#sleep-date(type='date')
           span
-          input#sleep-time(type='time' value=`${today.sleepStartTime}`)
+          input#sleep-time(type='time')
         h4 What time did you wake up?
         .datetimepicker
-          input#wakeup-date(type='date' value=`${today.sleepEndDate}`)
+          input#wakeup-date(type='date')
           span
-          input#wakeup-time(type='time' value=`${today.sleepEndTime}`)
+          input#wakeup-time(type='time')
         h4 After getting into bed, you fell asleep...
         .sleeplog-rating
           .sleeplog-rating__rating.rating-1

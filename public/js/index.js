@@ -23,6 +23,7 @@ import {
 import { getUser } from './user';
 import { loadChart } from './dashboard';
 import { settingsFormData, updatePassword, updateUserData } from './settings';
+import Today from './Today';
 
 // DOM ELEMENTS
 const spinner = document.querySelector('.spinner-wrapper');
@@ -119,6 +120,23 @@ if (resetPasswordForm) {
 //
 
 if (newSleeplogForm) {
+  const today = new Today();
+  document.querySelector(
+    '.sleeplog-date__day'
+  ).innerText = today.date.toLocaleString('en-US', { weekday: 'long' });
+  document.querySelector(
+    '.sleeplog-date__date'
+  ).innerText = today.date.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
+  document.getElementById('sleep-date').value = today.sleepStartDate;
+  document.getElementById('sleep-time').value = today.sleepStartTime;
+  document.getElementById('wakeup-date').value = today.sleepEndDate;
+  document.getElementById('wakeup-time').value = today.sleepEndTime;
+
   // pre-fill form if one was already started
   const previousData = getTempSleeplog();
 
