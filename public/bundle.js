@@ -16952,6 +16952,16 @@ if (updateSleeplogForm) {
     var formData = sleeplogFormData();
     (0, _sleeplog.updateASleeplog)(e, formData);
   });
+  var sleepStartDate = document.getElementById('sleep-date');
+  var sleepStartTime = document.getElementById('sleep-time');
+  var sleepEndDate = document.getElementById('wakeup-date');
+  var sleepEndTime = document.getElementById('wakeup-time');
+  var sleepStart = (0, _moment.default)(updateSleeplogForm.getAttribute('data-sleepStart'));
+  var sleepEnd = (0, _moment.default)(updateSleeplogForm.getAttribute('data-sleepEnd'));
+  sleepStartDate.value = sleepStart.format('ddd, MM/DD/YYYY');
+  sleepStartTime.value = sleepStart.format('hh:mm A');
+  sleepEndDate.value = sleepEnd.format('ddd, MM/DD/YYYY');
+  sleepEndTime.value = sleepEnd.format('hh:mm A'); // sleepEndTime.value = 'hi';
 } // Pickadate functionality
 
 
@@ -17070,12 +17080,14 @@ function sleeplogFormData() {
 
 function fillSleeplogFormData(data) {
   if (data.isTempLog) {
-    var sleepStart = new Date(data.log.sleepStart);
-    var sleepEnd = new Date(data.log.sleepEnd);
-    document.getElementById('sleep-date').value = formatDate(sleepStart);
-    document.getElementById('sleep-time').value = formatTime(sleepStart);
-    document.getElementById('wakeup-date').value = formatDate(sleepEnd);
-    document.getElementById('wakeup-time').value = formatTime(sleepEnd);
+    var _sleepStart = new Date(data.log.sleepStart);
+
+    var _sleepEnd = new Date(data.log.sleepEnd);
+
+    document.getElementById('sleep-date').value = (0, _moment.default)(_sleepStart).format('ddd, MM/DD/YYYY');
+    document.getElementById('sleep-time').value = (0, _moment.default)(_sleepStart).format('hh:mm A');
+    document.getElementById('wakeup-date').value = (0, _moment.default)(_sleepEnd).format('ddd, MM/DD/YYYY');
+    document.getElementById('wakeup-time').value = (0, _moment.default)(_sleepEnd).format('hh:mm A');
     var insomniaRatings = document.getElementsByName('fast-asleep-log');
     insomniaRatings[data.log.timeToFallAsleep - 1].setAttribute('checked', 'checked');
     var sleepQualityRatings = document.getElementsByName('wakeup-log');

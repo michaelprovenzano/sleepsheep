@@ -7,17 +7,21 @@ block content
         h2.sleeplog-date__day= sleeplog.sleepStart.toLocaleString('en-US', { weekday: 'long' })
         p.sleeplog-date__date= sleeplog.sleepStart.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric'} )
         .line__divider
-      form#update-sleeplog-form.form(action='' data-sleeplog-id=`${sleeplog.id}`)
+      form#update-sleeplog-form.form(action='' data-sleeplog-id=`${sleeplog.id}` data-sleepStart=`${sleeplog.sleepStart}` data-sleepEnd=`${sleeplog.sleepEnd}`)
         h4 What time did you fall asleep?
         .datetimepicker
-          input#sleep-date.date-picker(type='text' value=`${sleeplog.sleepStartDate.replace(/-/g, '/')}`)
+          input#sleep-date.date-picker(type='text' name='sleep-date')
+          input#sleep-date_hidden(type='hidden' name='sleep-date')
           span
-          input#sleep-time.time-picker(type='time' value=`${sleeplog.sleepStartTime}`)
+          input#sleep-time.time-picker(type='text' name='sleep-time')
+          input#sleep-time_hidden(type='hidden' name='sleep-time')
         h4 What time did you wake up?
         .datetimepicker
-          input#wakeup-date.date-picker(type='text' value=`${sleeplog.sleepEndDate.replace(/-/g, '/')}`)
+          input#wakeup-date.date-picker(type='text' name='wakeup-date')
+          input#wakeup-date_hidden(type='hidden' name='wakeup-date')
           span
-          input#wakeup-time.time-picker(type='time' value=`${sleeplog.sleepEndTime}`)
+          input#wakeup-time.time-picker(type='text' name='wakeup-time')
+          input#wakeup-time_hidden(type='hidden' name='wakeup-time')
         h4 After getting into bed, you fell asleep...
         .sleeplog-rating
           .sleeplog-rating__rating.rating-1

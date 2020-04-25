@@ -165,6 +165,20 @@ if (updateSleeplogForm) {
     const formData = sleeplogFormData();
     updateASleeplog(e, formData);
   });
+
+  let sleepStartDate = document.getElementById('sleep-date');
+  let sleepStartTime = document.getElementById('sleep-time');
+  let sleepEndDate = document.getElementById('wakeup-date');
+  let sleepEndTime = document.getElementById('wakeup-time');
+
+  const sleepStart = moment(updateSleeplogForm.getAttribute('data-sleepStart'));
+  const sleepEnd = moment(updateSleeplogForm.getAttribute('data-sleepEnd'));
+
+  sleepStartDate.value = sleepStart.format('ddd, MM/DD/YYYY');
+  sleepStartTime.value = sleepStart.format('hh:mm A');
+  sleepEndDate.value = sleepEnd.format('ddd, MM/DD/YYYY');
+  sleepEndTime.value = sleepEnd.format('hh:mm A');
+  // sleepEndTime.value = 'hi';
 }
 
 // Pickadate functionality
@@ -294,10 +308,18 @@ function fillSleeplogFormData(data) {
     const sleepStart = new Date(data.log.sleepStart);
     const sleepEnd = new Date(data.log.sleepEnd);
 
-    document.getElementById('sleep-date').value = formatDate(sleepStart);
-    document.getElementById('sleep-time').value = formatTime(sleepStart);
-    document.getElementById('wakeup-date').value = formatDate(sleepEnd);
-    document.getElementById('wakeup-time').value = formatTime(sleepEnd);
+    document.getElementById('sleep-date').value = moment(sleepStart).format(
+      'ddd, MM/DD/YYYY'
+    );
+    document.getElementById('sleep-time').value = moment(sleepStart).format(
+      'hh:mm A'
+    );
+    document.getElementById('wakeup-date').value = moment(sleepEnd).format(
+      'ddd, MM/DD/YYYY'
+    );
+    document.getElementById('wakeup-time').value = moment(sleepEnd).format(
+      'hh:mm A'
+    );
 
     const insomniaRatings = document.getElementsByName('fast-asleep-log');
     insomniaRatings[data.log.timeToFallAsleep - 1].setAttribute(
