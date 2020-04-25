@@ -241,10 +241,11 @@ function sleeplogFormData() {
   const sleepEndDate = document.getElementsByName('wakeup-date')[0].value;
   const sleepEndTime = document.getElementsByName('wakeup-time')[0].value;
   const notes = document.getElementById('notes').value;
-  const sleepStart = new Date(`${sleepStartDate} ${sleepStartTime}`);
-  alert(`${sleepStartDate} ${sleepStartTime}`);
+  const sleepStart = new Date(
+    moment(`${sleepStartDate} ${sleepStartTime}`).format()
+  );
 
-  const sleepEnd = new Date(`${sleepEndDate} ${sleepEndTime}`);
+  const sleepEnd = new Date(moment(`${sleepEndDate} ${sleepEndTime}`).format());
 
   let timeToFallAsleep;
   const timeToFallAsleepBtns = [

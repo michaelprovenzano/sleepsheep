@@ -17027,9 +17027,8 @@ function sleeplogFormData() {
   var sleepEndDate = document.getElementsByName('wakeup-date')[0].value;
   var sleepEndTime = document.getElementsByName('wakeup-time')[0].value;
   var notes = document.getElementById('notes').value;
-  var sleepStart = new Date("".concat(sleepStartDate, " ").concat(sleepStartTime));
-  alert("".concat(sleepStartDate, " ").concat(sleepStartTime));
-  var sleepEnd = new Date("".concat(sleepEndDate, " ").concat(sleepEndTime));
+  var sleepStart = new Date((0, _moment.default)("".concat(sleepStartDate, " ").concat(sleepStartTime)).format());
+  var sleepEnd = new Date((0, _moment.default)("".concat(sleepEndDate, " ").concat(sleepEndTime)).format());
   var timeToFallAsleep;
 
   var timeToFallAsleepBtns = _toConsumableArray(document.getElementsByName('fast-asleep-log'));
