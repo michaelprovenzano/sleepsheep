@@ -42,6 +42,9 @@ const resetPasswordForm = document.getElementById('reset-password-form');
 const dashboard = document.querySelector('.dashboard');
 const backBtn = document.getElementById('back-btn');
 
+// Initialize AOS (animate on scroll) libraray
+AOS.init();
+
 // Initalize loader
 window.addEventListener('load', () => {
   if (spinner) spinner.classList.add('spinner--loaded');

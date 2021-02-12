@@ -17,7 +17,7 @@
 @import 'base/typography';
 @import 'base/utilities';
 
-@import 'layouts/header';
+@import 'layouts/grid';
 
 @import 'components/my-settings';
 @import 'components/button';
@@ -41,12 +41,16 @@
 @import 'components/error';
 @import 'components/alert';
 @import 'components/spinner';
+@import 'components/header';
 
 @import 'pages/home';
+
+@import 'typography/typography';
 
 body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
+  background-color: var(--white);
   color: var(--text-color-dark);
   display: flex;
   justify-content: center;
@@ -205,6 +209,14 @@ button {
   padding: 0 16px;
 }
 
+.container-960 {
+  display: block;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
 #nav_toggle {
   display: none;
 }
@@ -221,34 +233,6 @@ button {
 
   > *:last-child:not(.fab) {
     margin-bottom: 100px;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--white);
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(10, 7, 104, 0.5),
-      rgba(82, 7, 104, 0.5)
-    ),
-    url('/images/ryan-hutton_header.jpg');
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 30vh;
-  overflow: hidden;
-  margin-bottom: 40px;
-
-  &__text {
-    z-index: 100;
-  }
-
-  &__img {
-    z-index: 1;
-    object-fit: cover;
   }
 }
 
@@ -297,7 +281,8 @@ button {
     max-width: 100%;
   }
 
-  .container {
+  .container,
+  .container-960 {
     width: 100%;
   }
 

@@ -7,6 +7,14 @@ $text-color-dark: #303030;
 $navHeight-desktop: 70px;
 $navHeight-mobile: 50px;
 
+// Breakpoints
+$bp-xs: 0;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
 :root {
   --dark-blue: #0a0768;
   --purple: #6f0273;

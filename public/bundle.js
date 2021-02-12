@@ -16843,7 +16843,9 @@ var updateSettingsForm = document.getElementById('update-settings-form');
 var forgotPasswordForm = document.getElementById('forgot-password-form');
 var resetPasswordForm = document.getElementById('reset-password-form');
 var dashboard = document.querySelector('.dashboard');
-var backBtn = document.getElementById('back-btn'); // Initalize loader
+var backBtn = document.getElementById('back-btn'); // Initialize AOS (animate on scroll) libraray
+
+AOS.init(); // Initalize loader
 
 window.addEventListener('load', function () {
   if (spinner) spinner.classList.add('spinner--loaded');
@@ -17199,7 +17201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59267" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64324" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

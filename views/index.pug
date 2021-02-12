@@ -2,36 +2,54 @@ extends base
 
 block content
   .content
-    header.header
-      .header__text.container
-        | Welcome to Sleepily. We are a simple sleep journal whose goal is to
-        | help you find out when you sleep your best and why. How, you may ask?
-        | (and you should). It&rsquo;s simple!
-    .container
-      .step
-        .step__title
-          .step__number
-            span 1
-          h3 Create an Account
-        p
-          | Well you can&rsquo;t track anything without an account. So sign up first!
-      .step
-        .step__title
-          .step__number
-            span 2
-          h3 Create a Trackable
-        p
-          | You can track correlations between your sleep and other activities
-          | through the use of Trackables. Trackables are activities or habits
-          | that you can quickly log after a night of sleep. An example of a
-          | Trackable is &ldquo;Exercise&rdquo;. Over time you may notice patterns emerge.
-      .step
-        .step__title
-          .step__number
-            span 3
-          h3 Log Your Sleep
-        p
-          | The last step in the puzzle is logging when you fell asleep, how
-          | long, and some other details. We compare these details with the
-          | trackables to find out potential cause and effects to your sleep
-          | quality.
+    header.header.d-flex.align-items-center
+      .container-960(data-aos="fade-right" data-aos-duration="1000")
+        h2.mb-2.show-md
+          | You can sleep better 
+        h3.mb-4.show-md
+          | SleepSheep can show you how.
+        .row
+          .col.col-md-6 
+            a.btn.btn-primary.w-100(href="/signup")
+              | Sign up for free
+    .container-960
+      .row.mb-5
+        .col.col-md-8.d-flex.justify-content-center.align-items-center.p-2.mb-2
+          img(src="/images/home-img-1.jpg", alt="home-image-1" data-aos="fade-up" data-aos-duration="1000").mw-100
+        .col.col-md-4.d-flex.align-items-center.p-2
+          div(data-aos="fade-up"  data-aos-duration="1000")
+            h3
+              | Track your sleep 
+            p 
+              | At its core, SleepSheep is a sleep journal. You can log the quality and duration of sleep every night to help you discover sleep disruptive patterns that may not be noticable otherwise.
+            
+      .row.mb-5
+        .col.col-md-4.d-flex.align-items-center.p-2.order-2.order-md-1
+          div(data-aos="fade-up")
+            h3 
+              | Track your habits 
+            p
+              | SleepSheep allows you to create “trackables” which are habits or behaviours you can track when logging your sleep. Things like “Worked out for at least 30 minutes”, “Had caffeine 8 hours before bed”, “Took a nap” are all examples of trackables. 
+        .col.col-md-8.d-flex.justify-content-center.align-items-center.order-1.order-md-2
+          img(src="/images/home-img-2.jpg", alt="home-image-2.jpg" data-aos="fade-up" data-aos-duration="1000").mw-100
+      
+      .row.mb-5
+        .col.col-md-8.d-flex.justify-content-center.align-items-center.p-2.mb-2
+          img(src="/images/home-img-3.jpg", alt="home-image-3" data-aos="fade-up" data-aos-duration="1000").mw-100
+        .col.col-md-4.d-flex.align-items-center.p-2
+          div(data-aos="fade-up")
+            h3
+              | Find correlations
+            p 
+              | SleepSheep compares the quality and duration of your sleep against your “trackables” and determines if there’s any correlation. Maybe 1 glass of wine before bed helps you sleep, but 2 causes you to be exhausted the next morning. Maybe that extra cup of coffee is impacting your sleep more than you thought.  Whatever you think might be affecting your sleep, SleepSheep can help you get to the root of the issue.
+
+      .row.mb-5 
+        .col.d-flex.flex-column.align-items-center.mb-2(data-aos="fade-up" data-aos-duration="1000")
+          h2.mb-3
+            | What are you waiting for?
+          a.btn.btn-primary.w-md-50(href="/signup")
+            | Sign up for free
+
+      hr.mb-3
+      p 
+        | &copy; 2021 SleepSheep. All rights reserved.

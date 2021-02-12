@@ -9,12 +9,12 @@ block content
           if user.sleepData.totalSleepLogs > 0
             .stat
               .label
-                img.rating-icon(src=`/images/Rating-${Math.ceil(((user.sleepData.avgSleepQuality - 1) * 25 / 20) + .001)}.svg`)
+                img.rating-icon(src=`/images/Rating-${user.sleepData.avgSleepQuality === 5 ? 5 : Math.ceil(((user.sleepData.avgSleepQuality - 1) * 25 / 20) + .001)}.svg`)
                 h4 Sleep Quality Average
               h4.data= `${((user.sleepData.avgSleepQuality - 1) * 25).toFixed(0)}`
             .stat
               .label
-                img.rating-icon(src=`/images/Rating-${Math.ceil(((user.sleepData.avgTimeToFallAsleep - 1) * 25 / 20) + .001)}.svg`)
+                img.rating-icon(src=`/images/Rating-${user.sleepData.avgTimeToFallAsleep === 5 ? 5 : Math.ceil(((user.sleepData.avgTimeToFallAsleep - 1) * 25 / 20) + .001)}.svg`)
                 h4 Insomnia Average
               h4.data= `${((user.sleepData.avgTimeToFallAsleep - 1) * 25).toFixed(0)}`
             .stat
